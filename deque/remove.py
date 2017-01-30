@@ -1,0 +1,2 @@
+dq.pop()
+dq.popleft()
