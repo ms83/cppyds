@@ -6,14 +6,16 @@ def test():
 
     dq = deque()
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         dq.append(i)
         dq.appendleft(i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         dq.pop()
         dq.popleft()
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 16.58 secs (python 2.7)
+# 19.25 secs (python 3.5)
+#  7.57 secs (pypy, 2.7)
