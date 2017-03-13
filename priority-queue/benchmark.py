@@ -13,7 +13,9 @@ def test():
         heapq.heappop(h)
 
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 5.38 secs (python 2.7)
 # 0.75 secs (python 3.5)

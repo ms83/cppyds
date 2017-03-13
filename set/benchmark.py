@@ -14,7 +14,9 @@ def test():
     for i in range(0, N):
         s.remove(i)
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 0.25 secs (python 2.7)
 # 0.31 secs (python 3.5)

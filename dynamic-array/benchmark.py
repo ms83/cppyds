@@ -16,7 +16,9 @@ def test():
     while l:
         l.pop()
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 11.59 secs (python 2.7)
 # 13.03 secs (python 3.5)
