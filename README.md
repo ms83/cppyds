@@ -20,58 +20,166 @@
 [benchmark](#deque-benchmark)
 
 ### deque: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from collections import deque
 dq = deque()
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<deque>
 deque<int> dq;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### deque: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 dq = deque([0, 1 ,2, 3, 4])
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 deque<int> dq {0,1,2,3,4};
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### deque: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 dq[0]
 dq[-1]
 dq[2] # raise IndexError if index of of range
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 dq.front();
 dq.back();
 dq[2];    // undefined behaviour if index out of range
 dq.at(2); // throw std::out_of_range if index out of range
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### deque: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 dq.append(10)
 dq.appendleft(20)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 dq.push_back(10)
 dq.push_front(20)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### deque: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 dq.pop()
 dq.popleft()
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 dq.pop_front()
 dq.pop_back()
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### deque: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from timeit import timeit
 from collections import deque
 
@@ -80,19 +188,23 @@ def test():
 
     dq = deque()
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         dq.append(i)
         dq.appendleft(i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         dq.pop()
         dq.popleft()
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 16.58 secs (python 2.7)
-```
-```cpp
+# 19.25 secs (python 3.5)
+#  7.57 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<deque>
@@ -122,7 +234,13 @@ int main()
 
 // 3.62 secs (-O0 optimization)
 // 0.60 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -141,54 +259,163 @@ int main()
 [benchmark](#dynamic-array-benchmark)
 
 ### dynamic-array: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 l = []
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<vector>
 vector<int> v;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### dynamic-array: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 l = [1,3,5,7,9]
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 vector<int> v{1,3,5,7,9};
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### dynamic-array: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 l[0]  # first
 l[-1] # last
 l[3]  # random access O(1)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 v[0]          // first
 v[v.size()-1] // last
 v[3]          // random access O(1)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### dynamic-array: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 l.append(11) # (!) possible full reallocation
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 v.push_back(11) // (!) possible full reallocation
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### dynamic-array: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 l.pop()  # remove last; O(1)
 l.pop(0) # remove first; prefer deque
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 v.pop_back();       // remove last; O(1)
 v.erase(v.begin()); // remove first; prefer deque or list
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### dynamic-array: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
+import sys
 from timeit import timeit
 
 def test():
@@ -196,8 +423,12 @@ def test():
 
     l = []
 
-    for i in xrange(0, N):
-        l.append(i)
+    if sys.version_info >= (3, ):
+        for i in range(0, N):
+            l.append(i)
+    else:
+        for i in xrange(0, N):
+            l.append(i)
 
     while l:
         l.pop()
@@ -205,8 +436,12 @@ def test():
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 11.59 secs (python 2.7)
-```
-```cpp
+# 13.03 secs (python 3.5)
+#  1.81 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<vector>
@@ -234,7 +469,13 @@ int main()
 
 // 3.46 secs (-O0 optimization)
 // 0.24 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -253,50 +494,158 @@ int main()
 [benchmark](#map-benchmark)
 
 ### map: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 d = {}
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<map>
 map<string, int> m;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### map: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 d = {'c++': 10, 'python': 12, 'java': 5}
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 map<string, int> m { {"c++", 10}, {"python", 12}, {"java", 5} };
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### map: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 d['erlang'] # raise KeyError for non-existing key
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 m["erlang"] // returns default constructed element for non-existing key
 
 m.at("erlang") // throws std::out_of_range for non-existing key
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### map: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 d['rust'] = 50
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 m["rust"] = 50;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### map: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 del d['scala'] # raise KeyError for non-existing key
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 m.erase("scala"); // dunno for non-existing key
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### map: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from timeit import timeit
 
 def test():
@@ -305,22 +654,24 @@ def test():
     total = 0
     d = {}
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         d[i] = i
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         total += d[i]
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         del d[i]
-
-    print total
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 0.25 secs (python 2.7)
-```
-```cpp
+# 0.27 secs (python 3.5)
+# 0.15 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<map>
@@ -355,7 +706,13 @@ int main()
 
 // 3.03 secs (-O0 optimization)
 // 0.58 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -374,82 +731,187 @@ int main()
 [benchmark](#priority-queue-benchmark)
 
 ### priority-queue: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 import heapq
 h = []
 
 # or slower but with better interface
 from Queue import PriorityQueue
 h = PriorityQueue()
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<queue>
 priority_queue<int> h;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### priority-queue: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 h = [2,1,1,5,4]
 heapq.heapify(h)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 vector<int> v{2,1,1,5,4};
 priority_queue<int> h(v.begin(), v.end());
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### priority-queue: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 h[0] # first element. unable to access top element using heapq
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 h.top() // top element
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### priority-queue: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 heapq.heappush(h, 10)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 h.push(10)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### priority-queue: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 heapq.heappop(h)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 h.pop()
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### priority-queue: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from timeit import timeit
 import heapq # faster than Queue.PriorityQueue
-
-h = [4,5,3,10,6]
-heapq.heapify(h)
-print h
-print h[0]
-print h[-1]
-x
 
 def test():
     N = 1<<20
 
     h = []
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         heapq.heappush(h, i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         heapq.heappop(h)
 
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 5.38 secs (python 2.7)
-```
-```cpp
+# 0.75 secs (python 3.5)
+# 0.37 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<queue>
@@ -478,7 +940,13 @@ int main()
 
 // 1.90 secs (-O0 optimization)
 // 0.10 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -497,76 +965,193 @@ int main()
 [benchmark](#queue-benchmark)
 
 ### queue: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from Queue import Queue
 q = Queue()
 
 # or simply list
 q = []
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<queue>
 queue<int> q;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### queue: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 # not possible to initialize Queue with values
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 queue<int> q {0,1,2,3,4};
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### queue: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 q.get() # return and remove
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 q.front()
 q.back()
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### queue: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s.put(10)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 q.push(10)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### queue: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 q.get()
 q.pop(0) # if queue used as []
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 q.pop()
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### queue: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
+import sys
 from timeit import timeit
-from Queue import Queue
+
+if sys.version_info >= (3,):
+    from queue import Queue
+else:
+    from Queue import Queue
 
 def test():
     N = 1<<20
 
-    # 1) orders of magnitue faster that queue as []
+    # 1) orders of magnitue faster than queue as []
     # 2) thread safe
     q = Queue()
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         q.put(i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         q.get()
 
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 3.13 secs (python 2.7)
-```
-```cpp
+# 5.09 secs (python 3.5)
+# 0.22 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<queue>
@@ -594,7 +1179,13 @@ int main()
 
 // 0.036 secs (-O0 optimization)
 // 0.006 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -613,50 +1204,158 @@ int main()
 [benchmark](#set-benchmark)
 
 ### set: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s = set()
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<set>
 set<int> s;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### set: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s = {0, 1 ,2, 3, 4}
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 set<int> s {0,1,2,3,4};
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### set: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 if 10 in s:
     pass
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 if (s.find(10) != s.end()) {
 }
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### set: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s.add('b')
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 s.insert("b");
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### set: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s.remove(25)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 s.erase(25)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### set: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from timeit import timeit
 
 def test():
@@ -664,20 +1363,24 @@ def test():
 
     s = set()
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         s.add(i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         k = i in s
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         s.remove(i)
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
 # 0.25 secs (python 2.7)
-```
-```cpp
+# 0.31 secs (python 3.5)
+# 0.10 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<set>
@@ -709,7 +1412,13 @@ int main()
 
 // 2.94 secs (-O0 optimization)
 // 0.58 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
 
 
 
@@ -728,48 +1437,156 @@ int main()
 [benchmark](#stack-benchmark)
 
 ### stack: declaration and definition
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s = [] # simply list
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<stack>
 stack<int> s;
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### stack: initialize with values
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s = {0, 1 ,2, 3, 4}
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 stack<int> s {0,1,2,3,4};
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### stack: access
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s[-1]
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 s.top();
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### stack: insert
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s.append(10)
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 s.push(10)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### stack: remove
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 s.pop()
-```
-```cpp
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 s.pop()
-```
+</pre>
+</td>
+</tr>
+</table>
+    
 
 ### stack: benchmark
-```python
+
+
+<table>
+<tr>
+<th>
+Python
+</th>
+<th>
+C++11
+</th>
+</tr>
+<tr>
+<td  valign="top">
+<pre lang="py">
 from timeit import timeit
 
 def test():
@@ -777,17 +1594,21 @@ def test():
 
     s = []
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         s.append(i)
 
-    for i in xrange(0, N):
+    for i in range(0, N):
         s.pop()
 
 print(timeit("test()", number=1, setup="from __main__ import test"))
 
-# 11.53 secs (python 2.7)
-```
-```cpp
+# 13.53 secs (python 2.7)
+# 14.11 secs (python 2.7)
+#  1.68 secs (pypy, 2.7)
+</pre>
+</td>
+<td valign="top">
+<pre lang="cpp">
 #include<iostream>
 #include<chrono>
 #include<stack>
@@ -815,4 +1636,10 @@ int main()
 
 // 2.29 secs (-O0 optimization)
 // 0.35 secs (-O2 optimization)
-```
+</pre>
+</td>
+</tr>
+</table>
+    
+
+[&uarr;top](#c-for-python-programmers)
