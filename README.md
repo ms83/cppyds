@@ -433,7 +433,9 @@ def test():
     while l:
         l.pop()
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 11.59 secs (python 2.7)
 # 13.03 secs (python 3.5)
@@ -663,7 +665,9 @@ def test():
     for i in range(0, N):
         del d[i]
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 0.25 secs (python 2.7)
 # 0.27 secs (python 3.5)
@@ -903,7 +907,9 @@ def test():
         heapq.heappop(h)
 
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 5.38 secs (python 2.7)
 # 0.75 secs (python 3.5)
@@ -1143,7 +1149,9 @@ def test():
         q.get()
 
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 3.13 secs (python 2.7)
 # 5.09 secs (python 3.5)
@@ -1372,7 +1380,9 @@ def test():
     for i in range(0, N):
         s.remove(i)
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 0.25 secs (python 2.7)
 # 0.31 secs (python 3.5)
@@ -1600,7 +1610,9 @@ def test():
     for i in range(0, N):
         s.pop()
 
-print(timeit("test()", number=1, setup="from __main__ import test"))
+print(timeit("test()",
+             number=1,
+             setup="from __main__ import test"))
 
 # 13.53 secs (python 2.7)
 # 14.11 secs (python 2.7)
